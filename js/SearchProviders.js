@@ -12,13 +12,13 @@ import CoordinatesUtils from '../qwc2/utils/CoordinatesUtils';
 import IdentifyUtils from '../qwc2/utils/IdentifyUtils';
 
 function coordinatesSearch(text, searchParams, callback) {
-    const displaycrs = searchParams.displaycrs || "EPSG:4326";
+    const displaycrs = searchParams.displaycrs || "EPSG:25831";
     const matches = text.match(/^\s*([+-]?\d+\.?\d*)[,\s]\s*([+-]?\d+\.?\d*)\s*$/);
     const items = [];
     if (matches && matches.length >= 3) {
         const x = parseFloat(matches[1]);
         const y = parseFloat(matches[2]);
-        if (displaycrs !== "EPSG:4326") {
+        if (displaycrs !== "EPSG:25831") {
             items.push({
                 id: "coord0",
                 text: x + ", " + y + " (" + displaycrs + ")",
@@ -36,7 +36,7 @@ function coordinatesSearch(text, searchParams, callback) {
                 text: title,
                 x: x,
                 y: y,
-                crs: "EPSG:4326",
+                crs: "EPSG:25831",
                 bbox: [x, y, x, y]
             });
         }
@@ -48,7 +48,7 @@ function coordinatesSearch(text, searchParams, callback) {
                 text: title,
                 x: y,
                 y: x,
-                crs: "EPSG:4326",
+                crs: "EPSG:25831",
                 bbox: [y, x, y, x]
             });
         }
@@ -74,7 +74,7 @@ class NominatimSearch {
     static search(text, searchParams, callback, axios) {
         const viewboxParams = {};
         if (searchParams.filterBBox) {
-            viewboxParams.viewbox = CoordinatesUtils.reprojectBbox(searchParams.filterBBox, searchParams.mapcrs, "EPSG:4326").join(",");
+            viewboxParams.viewbox = CoordinatesUtils.reprojectBbox(searchParams.filterBBox, searchParams.mapcrs, "EPSG:25831").join(",");
             viewboxParams.bounded = 1;
         }
         axios.get("https://nominatim.openstreetmap.org/search", {params: {
