@@ -53,7 +53,7 @@
                     {
                         "key": "nominatim",
                         "params": {
-                            "countrycodes": "ch"
+                            "countrycodes": "es"
                         }
                     }
                 ],
@@ -127,31 +127,6 @@
                 "attributionUrl":"https://www.openstreetmap.org/copyright"
             },
             {
-                "name":"Night2012",
-                "title":"NASAGIBS Night 2012",
-                "type":"tileprovider",
-                "source":"nasagibs",
-                "provider":"NASAGIBS.ViirsEarthAtNight2012",
-                "thumbnail":"Night2012.jpg",
-                "attribution":"Suomi NPP / VIIRS via NASA Earth Observatory"
-            },
-            {
-                "name":"StamenWatercolor",
-                "title":"Stamen Watercolor/OSM",
-                "group":"stamen",
-                "type":"tileprovider",
-                "source":"stamen",
-                "provider":"Stamen.Watercolor"
-            },
-            {
-                "name":"StamenToner",
-                "title":"Stamen Toner/OSM",
-                "group":"stamen",
-                "type":"tileprovider",
-                "source":"stamen",
-                "provider":"Stamen.Toner"
-            },
-            {
                 "name":"group",
                 "title":"Group",
                 "type":"group",
@@ -190,14 +165,12 @@
             },
             {
                 "type":"wmts",
-                "url":"http://gibs.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief/default/{TileMatrixSet}/{TileMatrix}/{TileRow}/{TileCol}.jpeg",
-                "title":"Blue Marble",
-                "name":"bluemarble",
+                "url":"http://geoserveis.icgc.cat/map/bases/wmts/topo/topo/{TileMatrixSet}/{TileMatrix}/{TileCol}/{TileRow}.jpeg",
+                "title":"Capes ortofotografiques",
+                "name":"Capes ortofotografiques",
                 "tileMatrixPrefix":"",
                 "tileMatrixSet":"GoogleMapsCompatible_Level8",
-                "originX":-20037508.34278925,
-                "originY":20037508.34278925,
-                "projection:":"EPSG:3857",
+                "projection:":"EPSG:25831",
                 "resolutions":[
                     156543.03390625,
                     78271.516953125,
